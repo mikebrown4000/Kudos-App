@@ -1,37 +1,43 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize({
-  database: 'testing4testing',
-  dialect: 'postgres',
-  operatorsAliases: false,
-  define: {
-    underscored: true,
-    returning: true
-  }
+
+let sequelize;
+if (process.env.DATABASE_URL) {
+  console.log('called');
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect:  'postgres',
+    logging:  true,
+    operatorsAliases: false,
+    define: {
+      underscored: true
+    }
+  });
+} else {
+  sequelize = new Sequelize({
+    database: 'kudos_db',
+    dialect: 'postgresql',
+    operatorsAliases: false,
+    define: {
+      underscored: true
+    }
+  });
+}
+
+const User = sequelize.define('user', {
+  email: { type: Sequelize.STRING, unique: true },
+  password_digest: Sequelize.STRING,
+  first_name: Sequelize.STRING,
+  last_name: Sequelize.STRING,
+  weekly_budget: Sequelize.INTEGER,
+  restaurants: Sequelize.INTEGER,
+  groceries: Sequelize.INTEGER,
+  drinks: Sequelize.INTEGER,
+  entertainment: Sequelize.INTEGER,
+  shopping: Sequelize.INTEGER,
+  bills: Sequelize.INTEGER,
+  miscellanious: Sequelize.INTEGER,
 });
 
-const Food = sequelize.define('food', {
-  name: Sequelize.STRING,
-})
-
-const Flavor = sequelize.define('flavor', {
-  name: Sequelize.STRING,
-})
-
-// Here we define our many to many associations
-// This creates a new table called 'food_flavors' as a join table
-
-Food.belongsToMany(Flavor, { through: 'food_flavors' });
-Flavor.belongsToMany(Food, { through: 'food_flavors' });
-
-// Also setting up a 'user' table for auth with 'pasword_digest'. NOT 'password'!
-const User = sequelize.define('user', {
-  username: Sequelize.STRING,
-  password_digest: Sequelize.STRING
-})
-
 module.exports = {
-  Food,
-  Flavor,
+  User,
   sequelize,
-  User
 };
