@@ -27,14 +27,14 @@ const User = sequelize.define('user', {
   password_digest: Sequelize.STRING,
   first_name: Sequelize.STRING,
   last_name: Sequelize.STRING,
-  weekly_budget: Sequelize.INTEGER,
-  restaurants: Sequelize.INTEGER,
-  groceries: Sequelize.INTEGER,
-  drinks: Sequelize.INTEGER,
-  entertainment: Sequelize.INTEGER,
-  shopping: Sequelize.INTEGER,
-  bills: Sequelize.INTEGER,
-  miscellanious: Sequelize.INTEGER,
+  weekly_budget: {type: Sequelize.INTEGER, defaultValue: 0},
+  restaurants: {type: Sequelize.INTEGER, defaultValue: 0},
+  groceries: {type: Sequelize.INTEGER, defaultValue: 0},
+  drinks: {type: Sequelize.INTEGER, defaultValue: 0},
+  entertainment: {type: Sequelize.INTEGER, defaultValue: 0},
+  shopping: {type: Sequelize.INTEGER, defaultValue: 0},
+  bills: {type: Sequelize.INTEGER, defaultValue: 0},
+  miscellanious: {type: Sequelize.INTEGER, defaultValue: 0},
 });
 
 module.exports = {
