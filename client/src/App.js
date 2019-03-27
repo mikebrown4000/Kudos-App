@@ -20,6 +20,12 @@ class App extends Component {
       authFormData: {
         email: "",
         password: ""
+      },
+      registerFormData: {
+        email: "",
+        password: "",
+        first_name: "",
+        last_name:""
       }
     }
 
@@ -49,7 +55,7 @@ class App extends Component {
 
   async handleRegister(e) {
     e.preventDefault();
-    await registerUser(this.state.authFormData);
+    await registerUser(this.state.registerFormData);
     this.handleLogin();
   }
 
@@ -58,6 +64,10 @@ class App extends Component {
     this.setState(prevState => ({
       authFormData: {
         ...prevState.authFormData,
+        [name]: value
+      },
+      registerFormData: {
+        ...prevState.registerFormData,
         [name]: value
       }
     }));
@@ -78,7 +88,7 @@ class App extends Component {
         <Register
           handleRegister={this.handleRegister}
           handleChange={this.authHandleChange}
-          formData={this.state.authFormData} />
+          formData={this.state.registerFormData} />
       )} />
 
       </div>
