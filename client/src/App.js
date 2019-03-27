@@ -8,8 +8,17 @@ import {
   loginUser,
   registerUser,
 } from './services/apihelpers';
+import BudgetComponent from './components/BudgetComponent';
+import BudgetRegister from './components/BudgetRegister';
+import CatRegister from './components/CatRegister';
+import Header from './components/Header';
+import LandingPage from './components/LandingPage';
+import LogExpense from './components/LogExpense';
 import Login from './components/Login';
+import PrimaryRegister from './components/PrimaryRegister';
 import Register from './components/Register';
+
+
 
 class App extends Component {
   constructor(props) {
