@@ -5,6 +5,7 @@ import { Route, Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import decode from 'jwt-decode';
 import {
+  putBudget,
   loginUser,
   registerUser,
 } from './services/apihelpers';
@@ -35,12 +36,15 @@ class App extends Component {
         password: "",
         first_name: "",
         last_name:""
-      }
+      },
+      weekly_budget: '',
     }
 
-    this.handleLogin = this.handleLogin.bind(this)
-    this.handleRegister = this.handleRegister.bind(this)
-    this.authHandleChange = this.authHandleChange.bind(this)
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleRegister = this.handleRegister.bind(this);
+    this.authHandleChange = this.authHandleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.updateBudget =this.updateBudget.bind(this);
   }
 
 
@@ -82,6 +86,20 @@ class App extends Component {
     }));
   }
 
+  handleChange(e) {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      weekly_budget: {
+        ...prevState.weekly_budget,
+        [name]: value
+      }
+    }));
+  }
+
+  async updateBudget(weekly_budget) {
+    weekly_budget = await putBudget(this.state.weekly_budget, this.state.currentUser.id);
+  }
+
   render() {
     return (
       <div className="App">
@@ -98,6 +116,12 @@ class App extends Component {
           handleRegister={this.handleRegister}
           handleChange={this.authHandleChange}
           formData={this.state.registerFormData} />
+      )} />
+
+      <Route exact path="/setbudget" render={(props) => (
+        <BudgetRegister
+          updateBudget={this.updateBudget}
+          handleChange={this.handleChange} />
       )} />
 
       </div>

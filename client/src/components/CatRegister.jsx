@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Categories(props){
+const Categories = (props) => {
+  return(
     <div className="categoriesContainer">
         <h1>Pick Your Categories</h1>
         <div className="selectionContainer">
@@ -14,6 +15,7 @@ function Categories(props){
             <div>Custom?</div>
         </div>
     </div>
+  )
 }
 
 export default Categories;

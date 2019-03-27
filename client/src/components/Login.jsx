@@ -12,7 +12,7 @@ const Login = (props) => {
         <input
         name="email"
         type="text"
-        value={props.formData.username}
+        value={props.formData.email}
         onChange={props.handleChange}
         placeholder="Email" />
         <input

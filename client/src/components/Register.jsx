@@ -9,19 +9,19 @@ const Register = (props) => {
         <input
         name="first_name"
         type="text"
-        value={props.formData.username}
+        value={props.formData.first_name}
         onChange={props.handleChange}
         placeholder="First Name" />
         <input
         name="last_name"
         type="text"
-        value={props.formData.username}
+        value={props.formData.last_name}
         onChange={props.handleChange}
         placeholder="Last Name" />
         <input
         name="email"
         type="text"
-        value={props.formData.username}
+        value={props.formData.email}
         onChange={props.handleChange}
         placeholder="Email" />
         <input
