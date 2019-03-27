@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const { User } = require('../models');
-const { restrict, hashPassword, genToken, checkPassword } = require('../services/auth');
+const { hashPassword, genToken, checkPassword, restrict } = require('../services/auth');
+
 
 const usersRouter = Router();
 
@@ -63,6 +64,22 @@ usersRouter.post('/login', async (req, res) => {
     res.status(500).send(e.message);
   }
 })
+
+usersRouter.get('/:id', restrict, async (req, res) => {
+  try {
+    const id = req.params.id;
+    const user = await User.findByPk(id)
+    const {
+      password_digest,
+      ...userData
+    } = user.dataValues
+
+    res.json(userData);
+  } catch(e) {
+    res.status(error).send(e.message);
+  }
+});
+
 
 usersRouter.put('/:id', restrict, async (req, res, next) => {
   try {
