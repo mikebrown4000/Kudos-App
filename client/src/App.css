@@ -113,6 +113,7 @@ html {
 }
 
 .budget-input::placeholder {
+  text-align: left;
   color: #597592;
   font-family: Lato-Regular;
 }
