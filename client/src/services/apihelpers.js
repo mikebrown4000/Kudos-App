@@ -12,3 +12,8 @@ export const registerUser = async (resgisterData) => {
   const resp = await api.post(`/user/register`, resgisterData);
   return resp.data;
 }
+
+export const putBudget = async (budget, id) => {
+  const resp = await api.put(`/user/${id}`, budget, { headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` } })
+  return resp.data
+}

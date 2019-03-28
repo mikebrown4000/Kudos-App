@@ -1,33 +1,141 @@
+/* #379683 -register green */
+
+/* #f4fbea -background */
+/* font-family: Avenir-Heavy; */
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+html {
+  background-color: #f4fbea;
+  font-family: Avenir-Heavy
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.register-page{
+  margin: 10% 0%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.register-title{
+  font-size: 1.5em;
+  color:#379683;
+  margin-bottom: 1em;
+  font-weight: 600;
+}
+
+.register-form {
+  border-radius: 2em;
+  background-color: #379683;
+  width: 75%;
+  height: 28em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.all-reg-inputs {
+  display: flex;
+  flex-direction: column;
+  width: 85%;;
+  margin-top: 12%;
+}
+
+.register-input {
+  padding: 0em 0.5em;
+  border: none;
+  appearance: none;
+  background-color: #f4fbea;
+  height: 2em;
+  font-size: 1em;
+  margin-bottom: 5%;
+  color: #379683;
+  font-family: Avenir-Heavy
+}
+
+.register-input:focus {
+  outline: none;
+  appearance: none;
+}
+
+.register-input::placeholder {
+  color: #379683;
+  font-family: Avenir-Heavy
+}
+
+.reg-button {
+  border-radius: 2em;
+  margin-top: 8%;
+  background-color: #f4fbea;
+  width: 40%;
+  line-height: 2.2em;
+  height: 2.2em;
+  color: #379683;
+  font-size: 1em;
+  font-family: Avenir-Heavy
+}
+
+.budget-title {
+  font-family: Montserrat-SemiBold;
+  margin-top: 10%;
+  width: 60%;
+  font-size: 1.5em;
+  color:#379683;
+  margin: 1em;
+  font-weight: 300;
+}
+
+.budget-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.budget-input {
+  text-align: right;
+  padding: 0em 1.5em;
+  border: none;
+  appearance: none;
+  border-bottom: 1px solid #597592;
+  background-color: #f4fbea;
+  height: 2em;
+  font-size: 1em;
+  margin-bottom: 5%;
+  color: #379683;
+  font-family: Lato-Regular;
+}
+
+.budget-input:focus {
+  outline: none;
+  appearance: none;
+}
+
+.budget-input::placeholder {
+  text-align: left;
+  color: #597592;
+  font-family: Lato-Regular;
+}
+
+.budget-button {
+  text-transform: uppercase;
+  border-radius: 2em;
+  margin-top: 8%;
+  background-color: #a6a6a6;
+  width: 40%;
+  height: 2.2em;
   color: white;
+  font-size: 1em;
 }
 
-.App-link {
-  color: #61dafb;
+.budget-button:hover{
+  background-color: #5cdb95
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.budget-page{
+  margin: 12em 0em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

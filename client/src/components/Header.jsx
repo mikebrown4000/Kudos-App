@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Header(props){
+const Header = (props) => {
 return(
     <nav>
         <div className="homeButton">Icon For Home: Links to Weekly Budget</div>
