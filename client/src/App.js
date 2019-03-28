@@ -5,13 +5,14 @@ import { Route, Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import decode from 'jwt-decode';
 import {
+  getUser,
   putBudget,
   loginUser,
   registerUser,
 } from './services/apihelpers';
 import BudgetComponent from './components/BudgetComponent';
 import BudgetRegister from './components/BudgetRegister';
-import CatRegister from './components/CatRegister';
+import Categories from './components/Categories';
 import Header from './components/Header';
 import LandingPage from './components/LandingPage';
 import LogExpense from './components/LogExpense';
@@ -26,6 +27,7 @@ class App extends Component {
     super(props);
 
     this.state = {
+      user:[],
       currentUser: null,
       authFormData: {
         email: "",
@@ -37,7 +39,15 @@ class App extends Component {
         first_name: "",
         last_name:""
       },
-      weekly_budget: '',
+      weekly_budget: 0,
+      restaurants_picked: false,
+      groceries_picked: false,
+      drinks_picked: false,
+      entertainment_picked: false,
+      shopping_picked: false,
+      bills_picked: false,
+      miscellanious_picked: false,
+      category_count: 0
     }
 
     this.handleLogin = this.handleLogin.bind(this);
@@ -45,10 +55,67 @@ class App extends Component {
     this.authHandleChange = this.authHandleChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.updateBudget =this.updateBudget.bind(this);
+    this.addCount = this.addCount.bind(this);
+    this.toggleMisc = this.toggleMisc.bind(this);
+    this.toggleRestaurant = this.toggleRestaurant.bind(this);
+    this.toggleGroceries = this.toggleGroceries.bind(this);
+    this.toggleEntertainment = this.toggleEntertainment.bind(this);
+    this.toggleShopping = this.toggleShopping.bind(this);
+    this.toggleBills = this.toggleBills.bind(this);
+    this.toggleDrinks = this.toggleDrinks.bind(this);
   }
 
+  addCount(){
+    this.setState(prevState => {
+      return{
+        category_count: prevState.category_count +1
+      }
+    })
+  }
 
-  componentDidMount() {
+  toggleMisc(){
+    this.setState({
+      miscellanious_picked: true,
+    })
+  }
+
+  toggleBills(){
+    this.setState({
+      bills_picked: true,
+    })
+  }
+
+  toggleShopping(){
+    this.setState({
+      shopping_picked: true,
+    })
+  }
+
+  toggleRestaurant(){
+    this.setState({
+      restaurants_picked: true,
+    })
+  }
+
+  toggleGroceries(){
+    this.setState({
+      groceries_picked: true,
+    })
+  }
+
+  toggleDrinks(){
+    this.setState({
+      drinks_picked: true,
+    })
+  }
+
+  toggleEntertainment(){
+    this.setState({
+      entertainment_picked: true,
+    })
+  }
+
+  async componentDidMount() {
     const checkUser = localStorage.getItem("jwt");
     if (checkUser) {
       const user = decode(checkUser);
@@ -101,6 +168,14 @@ class App extends Component {
   }
 
   render() {
+console.log(this.state.restaurants_picked);
+console.log(this.state.groceries_picked);
+console.log(this.state.drinks_picked);
+console.log(this.state.entertainment_picked);
+console.log(this.state.shopping_picked);
+console.log(this.state.bills_picked);
+console.log(this.state.miscellanious_picked);
+console.log(this.state.category_count);
     return (
       <div className="App">
 
@@ -124,9 +199,21 @@ class App extends Component {
           handleChange={this.handleChange} />
       )} />
 
+      <Route exact path="/setcategories" render={(props) => (
+        <Categories
+          restaurantToggle={this.toggleRestaurant}
+          groceryToggle={this.toggleGroceries}
+          drinksToggle={this.toggleDrinks}
+          entertainmentToggle={this.toggleEntertainment}
+          shoppingToggle={this.toggleShopping}
+          billsToggle={this.toggleBills}
+          otherToggle={this.toggleMisc}
+          addCount={this.addCount} />
+      )} />
+
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
