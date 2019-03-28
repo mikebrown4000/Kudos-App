@@ -7,14 +7,19 @@ import React from 'react';
 const BudgetRegister = (props) => {
 
   return (
-    <div>
-      <h2>What is your weekly budget?</h2>
-      <form onSubmit={props.updateBudget}>
+    <div className="budget-page">
+      <div className="budget-title">What's your weekly budget?</div>
+      <form
+      className="budget-form"
+      onSubmit={props.updateBudget}>
         <input
+        autoComplete="off"
+        className="budget-input"
         name="weekly_budget"
         type="text"
+        placeholder="$"
         onChange={props.handleChange} />
-        <button>Next</button>
+        <button className="budget-button">Next</button>
       </form>
     </div>
   );

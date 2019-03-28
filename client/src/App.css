@@ -2,6 +2,7 @@
 
 /* #f4fbea -background */
 /* font-family: Avenir-Heavy; */
+
 .App {
   text-align: center;
 }
@@ -12,28 +13,26 @@ html {
 }
 
 .register-page{
-  margin-top: 10%;
+  margin: 10% 0%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .register-title{
-  margin-top: 10%;
   font-size: 1.5em;
   color:#379683;
-  margin: 1em;
+  margin-bottom: 1em;
   font-weight: 600;
 }
 
 .register-form {
   border-radius: 2em;
   background-color: #379683;
-  width: 20em;
-  height: 30em;
+  width: 75%;
+  height: 28em;
   display: flex;
   flex-direction: column;
-  align-items: center;
   align-items: center;
 }
 
@@ -45,6 +44,7 @@ html {
 }
 
 .register-input {
+  padding: 0em 0.5em;
   border: none;
   appearance: none;
   background-color: #f4fbea;
@@ -69,10 +69,72 @@ html {
   border-radius: 2em;
   margin-top: 8%;
   background-color: #f4fbea;
-  width: 50%;
-  line-height: 3em;
-  height: 3em;
+  width: 40%;
+  line-height: 2.2em;
+  height: 2.2em;
   color: #379683;
   font-size: 1em;
   font-family: Avenir-Heavy
+}
+
+.budget-title {
+  font-family: Montserrat-SemiBold;
+  margin-top: 10%;
+  width: 60%;
+  font-size: 1.5em;
+  color:#379683;
+  margin: 1em;
+  font-weight: 300;
+}
+
+.budget-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.budget-input {
+  text-align: right;
+  padding: 0em 1.5em;
+  border: none;
+  appearance: none;
+  border-bottom: 1px solid #597592;
+  background-color: #f4fbea;
+  height: 2em;
+  font-size: 1em;
+  margin-bottom: 5%;
+  color: #379683;
+  font-family: Lato-Regular;
+}
+
+.budget-input:focus {
+  outline: none;
+  appearance: none;
+}
+
+.budget-input::placeholder {
+  color: #597592;
+  font-family: Lato-Regular;
+}
+
+.budget-button {
+  text-transform: uppercase;
+  border-radius: 2em;
+  margin-top: 8%;
+  background-color: #a6a6a6;
+  width: 40%;
+  height: 2.2em;
+  color: white;
+  font-size: 1em;
+}
+
+.budget-button:hover{
+  background-color: #5cdb95
+}
+
+.budget-page{
+  margin: 12em 0em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
