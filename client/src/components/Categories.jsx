@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 const Categories = (props) => {
   return(
@@ -15,30 +16,35 @@ const Categories = (props) => {
           className="cat-block"
           onClick={() => {
             props.groceryToggle();
-            props.addCount();}}>Groceries</div>
+            props.addGroceries();}}>Groceries</div>
           <div className="cat-block"
           onClick={() => {
             props.drinksToggle();
-            props.addCount();}}>Drinks</div>
+            props.addDrinks();}}>Drinks</div>
           <div className="cat-block"
           onClick={() => {
             props.entertainmentToggle();
-            props.addCount();}}>Entertainment</div>
+            props.addEnt();}}>Entertainment</div>
           <div className="cat-block"
           onClick={() => {
             props.shoppingToggle();
-            props.addCount();}}>Shopping</div>
+            props.addShop();}}>Shopping</div>
           <div className="cat-block"
           onClick={() => {
             props.billsToggle();
-            props.addCount();}}>Recurring Bills</div>
+            props.addBills();}}>Recurring Bills</div>
           <div className="cat-block"
           onClick={() => {
             props.otherToggle();
-            props.addCount();}}>Other</div>
+            props.addMisc();}}>Other</div>
+          <button className="budget-button"
+          onClick={(e) => {
+            e.preventDefault()
+            props.addRestaurantBudget();
+            }}>Next</button>
         </div>
     </div>
   )
 }
 
-export default Categories;
+export default withRouter(Categories);
