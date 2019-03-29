@@ -29,12 +29,19 @@ const User = sequelize.define('user', {
   last_name: Sequelize.STRING,
   weekly_budget: {type: Sequelize.INTEGER, defaultValue: 0},
   restaurants: {type: Sequelize.INTEGER, defaultValue: 0},
+  restaurants_bool: {type: Sequelize.BOOLEAN, defaultValue:false},
   groceries: {type: Sequelize.INTEGER, defaultValue: 0},
+  groceries_bool: {type: Sequelize.BOOLEAN, defaultValue:false},
   drinks: {type: Sequelize.INTEGER, defaultValue: 0},
+  drinks_bool: {type: Sequelize.BOOLEAN, defaultValue:false},
   entertainment: {type: Sequelize.INTEGER, defaultValue: 0},
+  entertainment_bool: {type: Sequelize.BOOLEAN, defaultValue:false},
   shopping: {type: Sequelize.INTEGER, defaultValue: 0},
+  shopping_bool: {type: Sequelize.BOOLEAN, defaultValue:false},
   bills: {type: Sequelize.INTEGER, defaultValue: 0},
+  bills_bool: {type: Sequelize.BOOLEAN, defaultValue:false},
   miscellanious: {type: Sequelize.INTEGER, defaultValue: 0},
+  miscellanious_bool: {type: Sequelize.BOOLEAN, defaultValue:false},
 });
 
 module.exports = {
