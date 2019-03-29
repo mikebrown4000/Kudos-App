@@ -40,13 +40,13 @@ class App extends Component {
         last_name:""
       },
       weekly_budget: 0,
-      restaurants_picked: false,
-      groceries_picked: false,
-      drinks_picked: false,
-      entertainment_picked: false,
-      shopping_picked: false,
-      bills_picked: false,
-      miscellanious_picked: false,
+      restaurants_bool: false,
+      groceries_bool: false,
+      drinks_bool: false,
+      entertainment_bool: false,
+      shopping_bool: false,
+      bills_bool: false,
+      miscellanious_bool: false,
       category_count: 0,
       restaurants: 0,
       groceries: 0,
@@ -77,10 +77,11 @@ class App extends Component {
     this.addBills = this.addBills.bind(this);
     this.addMisc = this.addMisc.bind(this);
     this.test = this.test.bind(this);
+    this.updateBool = this.updateBool.bind(this);
   }
 
   addMisc(){
-    this.state.miscellanious_picked === true
+    this.state.miscellanious_bool === true
      ? (
     this.setState(prevState => {
       return {
@@ -96,7 +97,7 @@ class App extends Component {
   }
 
   addBills(){
-    this.state.bills_picked === true
+    this.state.bills_bool === true
      ? (
     this.setState(prevState => {
       return {
@@ -112,7 +113,7 @@ class App extends Component {
   }
 
   addShop(){
-    this.state.shopping_picked === true
+    this.state.shopping_bool === true
      ? (
     this.setState(prevState => {
       return {
@@ -128,7 +129,7 @@ class App extends Component {
   }
 
   addEnt(){
-    this.state.entertainment_picked === true
+    this.state.entertainment_bool === true
      ? (
     this.setState(prevState => {
       return {
@@ -144,7 +145,7 @@ class App extends Component {
   }
 
   addCount(){
-    this.state.restaurants_picked === true
+    this.state.restaurants_bool === true
      ? (
     this.setState(prevState => {
       return {
@@ -160,7 +161,7 @@ class App extends Component {
   }
 
   addGroceries(){
-    this.state.groceries_picked === true
+    this.state.groceries_bool === true
      ? (
     this.setState(prevState => {
       return {
@@ -176,7 +177,7 @@ class App extends Component {
   }
 
   addDrinks(){
-    this.state.drinks_picked === true
+    this.state.drinks_bool === true
      ? (
     this.setState(prevState => {
       return {
@@ -194,7 +195,7 @@ class App extends Component {
   toggleMisc(){
     this.setState(prevState => {
       return{
-        miscellanious_picked: !prevState.miscellanious_picked
+        miscellanious_bool: !prevState.miscellanious_bool
       }
     })
   }
@@ -202,7 +203,7 @@ class App extends Component {
   toggleBills(){
     this.setState(prevState => {
       return{
-        bills_picked: !prevState.bills_picked
+        bills_bool: !prevState.bills_bool
       }
     })
   }
@@ -210,7 +211,7 @@ class App extends Component {
   toggleShopping(){
     this.setState(prevState => {
       return{
-        shopping_picked: !prevState.shopping_picked
+        shopping_bool: !prevState.shopping_bool
       }
     })
   }
@@ -218,7 +219,7 @@ class App extends Component {
   toggleRestaurant(){
     this.setState(prevState => {
       return{
-        restaurants_picked: !prevState.restaurants_picked
+        restaurants_bool: !prevState.restaurants_bool
       }
     })
   }
@@ -226,7 +227,7 @@ class App extends Component {
   toggleGroceries(){
     this.setState(prevState => {
       return{
-          groceries_picked: !prevState.  groceries_picked
+          groceries_bool: !prevState.  groceries_bool
       }
     })
   }
@@ -234,7 +235,7 @@ class App extends Component {
   toggleDrinks(){
     this.setState(prevState => {
       return{
-        drinks_picked: !prevState.drinks_picked
+        drinks_bool: !prevState.drinks_bool
       }
     })
   }
@@ -242,7 +243,7 @@ class App extends Component {
   toggleEntertainment(){
     this.setState(prevState => {
       return{
-      entertainment_picked: !prevState.entertainment_picked
+      entertainment_bool: !prevState.entertainment_bool
       }
     })
   }
@@ -302,18 +303,38 @@ class App extends Component {
     this.props.history.push('/pickcategories')
   }
 
+  async updateBool() {
+    const {restaurants_bool,
+    groceries_bool,
+    drinks_bool,
+    entertainment_bool,
+    shopping_bool,
+    bills_bool,
+    miscellanious_bool } = this.state
+
+    const data = {restaurants_bool,
+    groceries_bool,
+    drinks_bool,
+    entertainment_bool,
+    shopping_bool,
+    bills_bool,
+    miscellanious_bool }
+
+    await putBudget(data, this.state.currentUser.id)
+  }
+
   test(){
     this.props.history.push('/home')
   }
 
   render() {
-console.log(this.state.restaurants_picked);
-console.log(this.state.groceries_picked);
-console.log(this.state.drinks_picked);
-console.log(this.state.entertainment_picked);
-console.log(this.state.shopping_picked);
-console.log(this.state.bills_picked);
-console.log(this.state.miscellanious_picked);
+console.log(this.state.restaurants_bool);
+console.log(this.state.groceries_bool);
+console.log(this.state.drinks_bool);
+console.log(this.state.entertainment_bool);
+console.log(this.state.shopping_bool);
+console.log(this.state.bills_bool);
+console.log(this.state.miscellanious_bool);
 console.log(this.state.category_count);
 console.log(parseInt(this.state.weekly_budget.weekly_budget));
     return (
@@ -356,7 +377,7 @@ console.log(parseInt(this.state.weekly_budget.weekly_budget));
           addBills={this.addBills}
           addMisc={this.addMisc}
           test={this.test}
-          addRestaurantBudget={this.addRestaurantBudget}
+          updateBool={this.updateBool}
            />
       )} />
 

@@ -40,7 +40,7 @@ const Categories = (props) => {
           <button className="budget-button"
           onClick={(e) => {
             e.preventDefault()
-            props.addRestaurantBudget();
+            props.updateBool();
             }}>Next</button>
         </div>
     </div>
