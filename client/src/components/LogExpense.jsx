@@ -1,5 +1,5 @@
 // from clicking + button on main page, user inputs expenses
- import React from 'react'
+ import React, {Component} from 'react'
  import { Link } from 'react-router-dom'
 // link or div/button with onclick history push?
 
@@ -39,7 +39,7 @@
      return(
        <div>
          <header>
-           <Link to="/home"> < </Link>
+           <Link to="/home"> </Link>
            <span>Update your Budget</span>
          </header>
          <form onSubmit={this.handleSubmit}>

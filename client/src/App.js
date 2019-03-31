@@ -40,14 +40,21 @@ class App extends Component {
         last_name:""
       },
       weekly_budget: 0,
-      restaurants_picked: false,
-      groceries_picked: false,
-      drinks_picked: false,
-      entertainment_picked: false,
-      shopping_picked: false,
-      bills_picked: false,
-      miscellanious_picked: false,
-      category_count: 0
+      restaurants_bool: false,
+      groceries_bool: false,
+      drinks_bool: false,
+      entertainment_bool: false,
+      shopping_bool: false,
+      bills_bool: false,
+      miscellanious_bool: false,
+      category_count: 0,
+      restaurants: 0,
+      groceries: 0,
+      drinks: 0,
+      entertainment: 0,
+      shopping: 0,
+      bills: 0,
+      miscellanious: 0,
     }
 
     this.handleLogin = this.handleLogin.bind(this);
@@ -63,55 +70,181 @@ class App extends Component {
     this.toggleShopping = this.toggleShopping.bind(this);
     this.toggleBills = this.toggleBills.bind(this);
     this.toggleDrinks = this.toggleDrinks.bind(this);
+    this.addGroceries =this.addGroceries.bind(this);
+    this.addDrinks = this.addDrinks.bind(this);
+    this.addEnt = this.addEnt.bind(this);
+    this.addShop = this.addShop.bind(this);
+    this.addBills = this.addBills.bind(this);
+    this.addMisc = this.addMisc.bind(this);
+    this.test = this.test.bind(this);
+    this.updateBool = this.updateBool.bind(this);
+  }
+
+  addMisc(){
+    this.state.miscellanious_bool === true
+     ? (
+    this.setState(prevState => {
+      return {
+        category_count: prevState.category_count -1
+      }
+    }) ) : (
+    this.setState(prevState => {
+      return {
+        category_count: prevState.category_count +1
+      }
+    })
+   )
+  }
+
+  addBills(){
+    this.state.bills_bool === true
+     ? (
+    this.setState(prevState => {
+      return {
+        category_count: prevState.category_count -1
+      }
+    }) ) : (
+    this.setState(prevState => {
+      return {
+        category_count: prevState.category_count +1
+      }
+    })
+   )
+  }
+
+  addShop(){
+    this.state.shopping_bool === true
+     ? (
+    this.setState(prevState => {
+      return {
+        category_count: prevState.category_count -1
+      }
+    }) ) : (
+    this.setState(prevState => {
+      return {
+        category_count: prevState.category_count +1
+      }
+    })
+   )
+  }
+
+  addEnt(){
+    this.state.entertainment_bool === true
+     ? (
+    this.setState(prevState => {
+      return {
+        category_count: prevState.category_count -1
+      }
+    }) ) : (
+    this.setState(prevState => {
+      return {
+        category_count: prevState.category_count +1
+      }
+    })
+   )
   }
 
   addCount(){
+    this.state.restaurants_bool === true
+     ? (
+    this.setState(prevState => {
+      return {
+        category_count: prevState.category_count -1
+      }
+    }) ) : (
+    this.setState(prevState => {
+      return {
+        category_count: prevState.category_count +1
+      }
+    })
+   )
+  }
+
+  addGroceries(){
+    this.state.groceries_bool === true
+     ? (
+    this.setState(prevState => {
+      return {
+        category_count: prevState.category_count -1
+      }
+    }) ) : (
+    this.setState(prevState => {
+      return {
+        category_count: prevState.category_count +1
+      }
+    })
+   )
+  }
+
+  addDrinks(){
+    this.state.drinks_bool === true
+     ? (
+    this.setState(prevState => {
+      return {
+        category_count: prevState.category_count -1
+      }
+    }) ) : (
+    this.setState(prevState => {
+      return {
+        category_count: prevState.category_count +1
+      }
+    })
+   )
+  }
+
+  toggleMisc(){
     this.setState(prevState => {
       return{
-        category_count: prevState.category_count +1
+        miscellanious_bool: !prevState.miscellanious_bool
       }
     })
   }
 
-  toggleMisc(){
-    this.setState({
-      miscellanious_picked: true,
-    })
-  }
-
   toggleBills(){
-    this.setState({
-      bills_picked: true,
+    this.setState(prevState => {
+      return{
+        bills_bool: !prevState.bills_bool
+      }
     })
   }
 
   toggleShopping(){
-    this.setState({
-      shopping_picked: true,
+    this.setState(prevState => {
+      return{
+        shopping_bool: !prevState.shopping_bool
+      }
     })
   }
 
   toggleRestaurant(){
-    this.setState({
-      restaurants_picked: true,
+    this.setState(prevState => {
+      return{
+        restaurants_bool: !prevState.restaurants_bool
+      }
     })
   }
 
   toggleGroceries(){
-    this.setState({
-      groceries_picked: true,
+    this.setState(prevState => {
+      return{
+          groceries_bool: !prevState.  groceries_bool
+      }
     })
   }
 
   toggleDrinks(){
-    this.setState({
-      drinks_picked: true,
+    this.setState(prevState => {
+      return{
+        drinks_bool: !prevState.drinks_bool
+      }
     })
   }
 
   toggleEntertainment(){
-    this.setState({
-      entertainment_picked: true,
+    this.setState(prevState => {
+      return{
+      entertainment_bool: !prevState.entertainment_bool
+      }
     })
   }
 
@@ -137,6 +270,7 @@ class App extends Component {
     e.preventDefault();
     await registerUser(this.state.registerFormData);
     this.handleLogin();
+    this.props.history.push('/setbudget')
   }
 
   authHandleChange(e) {
@@ -163,19 +297,38 @@ class App extends Component {
     }));
   }
 
-  async updateBudget(weekly_budget) {
-    weekly_budget = await putBudget(this.state.weekly_budget, this.state.currentUser.id);
+  async updateBudget(e) {
+    e.preventDefault();
+    await putBudget(this.state.weekly_budget, this.state.currentUser.id);
+    this.props.history.push('/pickcategories')
+  }
+
+  async updateBool() {
+    const {restaurants_bool,
+    groceries_bool,
+    drinks_bool,
+    entertainment_bool,
+    shopping_bool,
+    bills_bool,
+    miscellanious_bool } = this.state
+
+    const data = {restaurants_bool,
+    groceries_bool,
+    drinks_bool,
+    entertainment_bool,
+    shopping_bool,
+    bills_bool,
+    miscellanious_bool }
+
+    await putBudget(data, this.state.currentUser.id)
+    this.props.history.push('/budgethome')
+  }
+
+  test(){
+    this.props.history.push('/home')
   }
 
   render() {
-console.log(this.state.restaurants_picked);
-console.log(this.state.groceries_picked);
-console.log(this.state.drinks_picked);
-console.log(this.state.entertainment_picked);
-console.log(this.state.shopping_picked);
-console.log(this.state.bills_picked);
-console.log(this.state.miscellanious_picked);
-console.log(this.state.category_count);
     return (
       <div className="App">
 
@@ -199,7 +352,7 @@ console.log(this.state.category_count);
           handleChange={this.handleChange} />
       )} />
 
-      <Route exact path="/setcategories" render={(props) => (
+      <Route exact path="/pickcategories" render={(props) => (
         <Categories
           restaurantToggle={this.toggleRestaurant}
           groceryToggle={this.toggleGroceries}
@@ -208,7 +361,26 @@ console.log(this.state.category_count);
           shoppingToggle={this.toggleShopping}
           billsToggle={this.toggleBills}
           otherToggle={this.toggleMisc}
-          addCount={this.addCount} />
+          addCount={this.addCount}
+          addGroceries={this.addGroceries}
+          addDrinks={this.addDrinks}
+          addEnt={this.addEnt}
+          addShop={this.addShop}
+          addBills={this.addBills}
+          addMisc={this.addMisc}
+          test={this.test}
+          updateBool={this.updateBool}
+          restaurants_bool={this.state.restaurants_bool}
+          groceries_bool={this.state.groceries_bool}
+          drinks_bool={this.state.drinks_bool}
+          bills_bool={this.state.bills_bool}
+          shopping_bool={this.state.shopping_bool}
+          entertainment_bool={this.state.entertainment_bool}
+           />
+      )} />
+
+      <Route exact path="'/budgethome'" render={(props) => (
+        <LogExpense />
       )} />
 
       </div>
