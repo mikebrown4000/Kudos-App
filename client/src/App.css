@@ -13,7 +13,7 @@ html {
 }
 
 .register-page{
-  margin: 10% 0%;
+  margin: 5em 0em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +22,7 @@ html {
 .register-title{
   font-size: 1.5em;
   color:#379683;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   font-weight: 600;
 }
 
@@ -30,6 +30,7 @@ html {
   border-radius: 2em;
   background-color: #379683;
   width: 75%;
+  max-width: 35em;
   height: 28em;
   display: flex;
   flex-direction: column;
@@ -39,8 +40,9 @@ html {
 .all-reg-inputs {
   display: flex;
   flex-direction: column;
-  width: 85%;;
-  margin-top: 12%;
+  width: 85%;
+  max-width: 35em;
+  margin-top: 4em;
 }
 
 .register-input {
@@ -50,7 +52,7 @@ html {
   background-color: #f4fbea;
   height: 2em;
   font-size: 1em;
-  margin-bottom: 5%;
+  margin-bottom: 2em;
   color: #379683;
   font-family: Avenir-Heavy
 }
@@ -66,10 +68,11 @@ html {
 }
 
 .reg-button {
+  border: none;
   border-radius: 2em;
-  margin-top: 8%;
+  margin-top: 6%;
   background-color: #f4fbea;
-  width: 40%;
+  width: 7em;
   line-height: 2.2em;
   height: 2.2em;
   color: #379683;
@@ -129,8 +132,9 @@ html {
   font-size: 1em;
 }
 
-.budget-button:hover{
-  background-color: #5cdb95
+.budget-button:hover, .reg-button:hover{
+  background-color: #5cdb95;
+  color: white;
 }
 
 .budget-page{
@@ -140,6 +144,54 @@ html {
   align-items: center;
 }
 
+.categoriesContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cat-form{
+  width: 90%;
+  height: 40em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.selectionContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 5% 0%;
+
+}
+
 .cat-block {
-  border: 1px solid black;
+  margin: 2px;
+  border: 1px solid #379683;
+  width: 9em;
+  height: 9em;
+  border-radius: 1em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cat-button{
+  color: #f4fbea;
+  border-radius: 2em;
+  width: 5em;
+  line-height: 2.2em;
+  height: 2.2em;
+  font-size: 1em;
+  font-family: Avenir-Heavy
+}
+
+.cat-header {
+  line-height: 1.4em;
+  font-family: Montserrat-SemiBold;
+  margin-top: 3em;
+  width: 50%;
+  font-size: 1.5em;
+  color:#379683;
+  font-weight: 300;
 }

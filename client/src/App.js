@@ -321,6 +321,7 @@ class App extends Component {
     miscellanious_bool }
 
     await putBudget(data, this.state.currentUser.id)
+    this.props.history.push('/budgethome')
   }
 
   test(){
@@ -328,15 +329,6 @@ class App extends Component {
   }
 
   render() {
-console.log(this.state.restaurants_bool);
-console.log(this.state.groceries_bool);
-console.log(this.state.drinks_bool);
-console.log(this.state.entertainment_bool);
-console.log(this.state.shopping_bool);
-console.log(this.state.bills_bool);
-console.log(this.state.miscellanious_bool);
-console.log(this.state.category_count);
-console.log(parseInt(this.state.weekly_budget.weekly_budget));
     return (
       <div className="App">
 
@@ -378,11 +370,17 @@ console.log(parseInt(this.state.weekly_budget.weekly_budget));
           addMisc={this.addMisc}
           test={this.test}
           updateBool={this.updateBool}
+          restaurants_bool={this.state.restaurants_bool}
+          groceries_bool={this.state.groceries_bool}
+          drinks_bool={this.state.drinks_bool}
+          bills_bool={this.state.bills_bool}
+          shopping_bool={this.state.shopping_bool}
+          entertainment_bool={this.state.entertainment_bool}
            />
       )} />
 
-      <Route exact path="/home" render={(props) => (
-        <Header />
+      <Route exact path="'/budgethome'" render={(props) => (
+        <LogExpense />
       )} />
 
       </div>
