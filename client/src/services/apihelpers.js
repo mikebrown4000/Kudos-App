@@ -19,6 +19,6 @@ export const putBudget = async (budget, id) => {
 }
 
 export const getUser = async (id) => {
-  const resp = await api.put(`/user/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` } })
+  const resp = await api.get(`/user/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` } })
   return resp.data
 }

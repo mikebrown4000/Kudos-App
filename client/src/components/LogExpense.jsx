@@ -4,17 +4,16 @@
 // link or div/button with onclick history push?
 
  class LogExpense extends Component {
-   constructor(){
-     super()
+   constructor(props){
+     super(props)
 
      this.state = {
-       user: {},
        restaurants: 0,
+       groceries: 0,
        drinks: 0,
        entertainment: 0,
        shopping: 0,
        bills: 0,
-       miscellanious: 0,
      }
    }
 
@@ -28,20 +27,12 @@
    handleSubmit(e) {
      // add user input from state to vals in state user object (or props when linked to app.js)
      //post new values to user
-   }
-
-   componentDidMount() {
-     //call user get . should eventually happen from main page and save to state. pass down user obj as prop
+     //push to budgethome
    }
 
    render() {
-     const { restaurants_bool, groceries_bool, drinks_bool, entertainment_bool, shopping_bool, bills_bool, miscellanious_bool } = this.state.user
+     const { restaurants_bool, groceries_bool, drinks_bool, entertainment_bool, shopping_bool, bills_bool, miscellanious_bool } = this.props.user
      return(
-       <div>
-         <header>
-           <Link to="/home"> </Link>
-           <span>Update your Budget</span>
-         </header>
          <form onSubmit={this.handleSubmit}>
            restaurants_bool &&
            (<label forHtml="restaurants">RESTAURANTS</label> <br />
@@ -72,13 +63,7 @@
            (<label forHtml="bills">BILLS</label> <br />
            <img src="" alt="bill-logo" />
            <input name="bills" id="bills" placeholder="Type your spending here" onChange={this.handleChange} />)
-
-           miscellanious_bool &&
-           (<label forHtml="miscellanious">MISCELLANIOUS</label> <br />
-           <img src="" alt="miscellanious-logo" />
-           <input name="miscellanious" id="miscellanious" placeholder="Type your spending here" onChange={this.handleChange} />)
-        </form>
-       </div>
+          </form>
      )
    }
  }

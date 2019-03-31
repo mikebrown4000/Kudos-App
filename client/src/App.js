@@ -28,7 +28,7 @@ class App extends Component {
 
     this.state = {
       user:[],
-      currentUser: null,
+      currentUser: {},
       authFormData: {
         email: "",
         password: ""
@@ -251,7 +251,9 @@ class App extends Component {
   async componentDidMount() {
     const checkUser = localStorage.getItem("jwt");
     if (checkUser) {
-      const user = decode(checkUser);
+      const userDecode = await decode(checkUser);
+      const user = await getUser(userDecode.id)
+      console.log(userDecode)
       this.setState({
         currentUser: user
       })
@@ -264,6 +266,7 @@ class App extends Component {
       currentUser: userData.user
     })
     localStorage.setItem("jwt", userData.token)
+    this.props.history.push('/budgethome')
   }
 
   async handleRegister(e) {
@@ -379,8 +382,8 @@ class App extends Component {
            />
       )} />
 
-      <Route exact path="'/budgethome'" render={(props) => (
-        <LogExpense />
+      <Route exact path="/budgethome" render={(props) => (
+        <LogExpense {...props} user={this.state.currentUser} />
       )} />
 
       </div>
