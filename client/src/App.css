@@ -206,26 +206,26 @@ html {
 .log-img{
   height: 6em;
   width: 6em;
-  margin: 1em 0em;
+  margin: 1em 1em 1em 0em;
 }
 
 .log-block {
+  margin-right: 1em;
   height: 7em;
   display:flex;
   justify-content: space-between;
-  width: 27em;
+  width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;;
 }
 
 .log-input{
-  margin: 0em 2em;
   display: flex;
   flex-direction: column;
   align-self: center;
   justify-content: flex-start;
-  width: 25em;
+  width: 100%;
   text-align: left;
 }
 
@@ -253,7 +253,11 @@ html {
 }
 
 .log-form{
+  flex-direction: column;
+  display: flex;
   margin: 1.5em 0em;
+  width: 50em;
+  align-items: center;
 }
 
 .outer-bar {
@@ -388,5 +392,14 @@ html {
 .budg-input {
     width: 75%;
 }
+
+}
+
+@media only screen and (max-width: 800px) {
+
+  .log-form{
+    margin: 1.5em 0em;
+    width: 21em;
+  }
 
 }
