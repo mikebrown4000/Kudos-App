@@ -40,35 +40,22 @@ export default (props) => {
           const category = ele.split('_')[0]
           const spent = props.user[category]
           const total = (props.user.weekly_budget / categories.length).toFixed(2)
-          const catRemaining = total - spent
+          const catRemaining = (total - spent).toFixed(2)
           const width = (catRemaining / total) * 100
-          // const backgroundColor = (width) => {
-          //   let text = '#5cdb95'
-          //   let val = width >= 40
-          //   switch(val) {
-          //     case true:
-          //       text = '#5cdb95'
-          //       console.log(text)
-          //       break;
-          //     case false:
-          //       text = '#ffdd3a'
-          //       break;
-          //     default:
-          //     text='#5cdb95'
-          //   }
-          //   return text
-          // }
-          const backgroundColor = (function(val) {
+
+          let backgroundColor = (function(val) {
             switch(val) {
               case true:
-              return '#5cdb95';
+                return '#5cdb95';
               case false:
-              return '#ffdd3a';
+                return '#ffdd3a';
               default:
-              return '#5cdb95'
-              }
-              })((width>=40));
-            const barStyle = {
+                return '#5cdb95';
+            }
+          })((width>=40));
+
+          width < 0 ? backgroundColor = '#f1655a' : backgroundColor = backgroundColor ;
+          const barStyle = {
             width: width + '%',
             backgroundColor,
             }
