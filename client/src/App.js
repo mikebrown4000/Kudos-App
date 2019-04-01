@@ -57,6 +57,7 @@ class App extends Component {
     }
 
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
     this.handleRegister = this.handleRegister.bind(this);
     this.authHandleChange = this.authHandleChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -337,6 +338,11 @@ class App extends Component {
     })
   }
 
+  handleLogout() {
+    localStorage.clear();
+    this.props.history.push('/login');
+  }
+
   render() {
     return (
       <div className="App">
@@ -393,7 +399,7 @@ class App extends Component {
       )} />
 
     <Route exact path="/budgethome" render={(props) => (
-        <BudgetComponent {...props} user={this.state.currentUser} />
+        <BudgetComponent {...props} user={this.state.currentUser} handleLogout={this.handleLogout}/>
       )} />
       </div>
     );

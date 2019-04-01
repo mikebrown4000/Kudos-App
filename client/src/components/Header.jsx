@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Header = (props) => {
 return(
-    <nav>
-        <div className="homeButton">Icon For Home: Links to Weekly Budget</div>
-        <div className="spendingButton">Icon For Spending? Links to </div>
-        <div className="settingsButton">Icon For Settings: Links to Register page</div>
+    <nav className="main-nav">
+        <div className="nav-title">KUDOS</div>
+        <div onClick={props.handleLogout} className="logout-button">Logout</div>
     </nav>
 )
 }
