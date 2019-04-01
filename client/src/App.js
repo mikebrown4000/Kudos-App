@@ -78,6 +78,7 @@ class App extends Component {
     this.addMisc = this.addMisc.bind(this);
     this.test = this.test.bind(this);
     this.updateBool = this.updateBool.bind(this);
+    this.updateCurrentUser = this.updateCurrentUser.bind(this);
   }
 
   addMisc(){
@@ -330,6 +331,12 @@ class App extends Component {
     this.props.history.push('/home')
   }
 
+  updateCurrentUser(currentUser){
+    this.setState({
+      currentUser
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -381,10 +388,13 @@ class App extends Component {
            />
       )} />
 
-      <Route exact path="/budgethome" render={(props) => (
-        <LogExpense {...props} user={this.state.currentUser} />
+    <Route exact path="/logexpense" component={(props) => (
+        <LogExpense {...props} user={this.state.currentUser} updateCurrentUser={this.updateCurrentUser} />
       )} />
 
+    <Route exact path="/budgethome" render={(props) => (
+        <BudgetComponent {...props} user={this.state.currentUser} />
+      )} />
       </div>
     );
   }

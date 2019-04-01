@@ -88,8 +88,11 @@ usersRouter.put('/:id', restrict, async (req, res, next) => {
     const user = await User.findByPk(id);
 
     await user.update(req.body);
-
-    res.json({user})
+    const {
+      password_digest,
+      ...userData
+    } = user.dataValues
+    res.json({user: userData})
   } catch(e) {
     console.error(e);
     res.json({message:e.message})
