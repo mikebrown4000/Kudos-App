@@ -1,8 +1,6 @@
-// from clicking + button on main page, user inputs expenses
  import React, {Component} from 'react'
  import { Link } from 'react-router-dom'
  import { putBudget } from '../services/apihelpers'
-// link or div/button with onclick history push?
 
  class LogExpense extends Component {
    constructor(props){
@@ -100,9 +98,8 @@
              <img src="" alt="bill-logo" />
              <input type="number" name="bills" id="bills" placeholder="Type your spending here" onChange={this.handleChange} />
              <br />
-             <input type="submit" value="Done"/>
            </>)}
-
+           <input type="submit" value="Done"/>
           </form>
      )
    }
