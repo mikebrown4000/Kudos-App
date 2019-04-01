@@ -195,19 +195,6 @@ html {
   font-weight: 300;
 }
 
-.outer-bar {
-  height: 10px;
-  width: 80vw;
-  border: 1px solid black;
-  margin: 0 auto;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.inner-bar {
-  height: 100%;
-}
-
 .log-header{
   line-height: 1.4em;
   font-family: AvenirNext-DemiBold;
