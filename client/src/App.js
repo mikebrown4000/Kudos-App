@@ -323,7 +323,7 @@ class App extends Component {
     miscellanious_bool }
 
     const user = await putBudget(data, this.state.currentUser.id)
-    await this.updateCurrentUser(user)
+    await this.updateCurrentUser(user.user)
     this.props.history.push('/budgethome')
   }
 
