@@ -43,7 +43,7 @@ export default (props) => {
             }
           })((width>=40));
 
-          width < 0 ? backgroundColor = 'red' : backgroundColor = backgroundColor ;
+          width < 0 ? backgroundColor = '#f1655a' : backgroundColor = backgroundColor ;
           const barStyle = {
             width: width + '%',
             backgroundColor,
