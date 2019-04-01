@@ -17,7 +17,6 @@ import Header from './components/Header';
 import LandingPage from './components/LandingPage';
 import LogExpense from './components/LogExpense';
 import Login from './components/Login';
-import PrimaryRegister from './components/PrimaryRegister';
 import Register from './components/Register';
 
 
@@ -272,7 +271,7 @@ class App extends Component {
   async handleRegister(e) {
     e.preventDefault();
     await registerUser(this.state.registerFormData);
-    this.handleLogin();
+    await this.handleLogin();
     this.props.history.push('/setbudget')
   }
 
@@ -292,17 +291,17 @@ class App extends Component {
 
   handleChange(e) {
     const { name, value } = e.target;
-    this.setState(prevState => ({
-      weekly_budget: {
-        ...prevState.weekly_budget,
+    this.setState({
         [name]: value
       }
-    }));
+    );
   }
 
   async updateBudget(e) {
     e.preventDefault();
-    await putBudget(this.state.weekly_budget, this.state.currentUser.id);
+    const weekly_budget = { weekly_budget: parseInt(this.state.weekly_budget) }
+    const user = await putBudget(weekly_budget, this.state.currentUser.id);
+    this.updateCurrentUser(user.user)
     this.props.history.push('/pickcategories')
   }
 
@@ -323,7 +322,8 @@ class App extends Component {
     bills_bool,
     miscellanious_bool }
 
-    await putBudget(data, this.state.currentUser.id)
+    const user = await putBudget(data, this.state.currentUser.id)
+    await this.updateCurrentUser(user)
     this.props.history.push('/budgethome')
   }
 
