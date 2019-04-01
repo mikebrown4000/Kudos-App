@@ -10,12 +10,14 @@ export default (props) => {
             <div>
                 <h2 className='register-title'>Join Kudos Today!</h2>
             </div>
-            <Link className="reg-button" to="/register">Sign Up</Link>
-            <Link className="reg-button" to="/login">Login</Link> 
+            <Link className="land-button" to="/register">Sign Up</Link>
+            <Link className="land-button" to="/login">Login</Link>
         </div>
+
         <div className='big-splash'>
-            <img src="https://i.imgur.com/P58T5Vz.png" alt=""/>
+            <img src="/media/landing.png" alt=""/>
         </div>
+  
     </div>
     )
 }
