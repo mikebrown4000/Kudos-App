@@ -388,5 +388,31 @@ html {
 .budg-input {
     width: 75%;
 }
+}
 
+.main-nav {
+  display: flex;
+  height: 70px;
+  background-color: #91e3b0;
+  align-items: center;
+  justify-content: space-around;
+  font-family: AvenirNext-Medium;
+  color: #f4fbea;
+}
+
+.logout-button {
+  display:flex;
+  height:100%;
+  width: 100px;
+  align-items:center;
+  justify-content:center;
+}
+
+.logout-button:hover {
+  background-color: #379683;
+}
+
+.nav-title {
+  color: #379683;
+  font-weight:bold;
 }
