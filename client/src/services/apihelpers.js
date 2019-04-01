@@ -17,8 +17,3 @@ export const putBudget = async (budget, id) => {
   const resp = await api.put(`/user/${id}`, budget, { headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` } })
   return resp.data
 }
-
-export const getUser = async (id) => {
-  const resp = await api.get(`/user/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` } })
-  return resp.data
-}

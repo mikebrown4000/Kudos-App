@@ -2,21 +2,20 @@ const { Router } = require('express');
 const { User } = require('../models');
 const { hashPassword, genToken, checkPassword, restrict } = require('../services/auth');
 
+
 const usersRouter = Router();
 
 const buildAuthResponse = (user) => {
-
     const token_data = {
       id: user.id,
       email: user.email
     };
 
     const token = genToken(token_data);
-
-    const {
-      password_digest,
-      ...userData
-    } = user.dataValues
+    const userData = {
+      email: user.email,
+      id: user.id,
+    };
 
   return {
     user: userData,
@@ -55,7 +54,7 @@ usersRouter.post('/login', async (req, res) => {
     if (await checkPassword(req.body.password, user.password_digest)) {
       const respData = buildAuthResponse(user);
 
-      console.log(respData)
+
       res.json({ ...respData });
     } else {
       res.status(401).send('Invalid Credentials');
@@ -88,11 +87,8 @@ usersRouter.put('/:id', restrict, async (req, res, next) => {
     const user = await User.findByPk(id);
 
     await user.update(req.body);
-    const {
-      password_digest,
-      ...userData
-    } = user.dataValues
-    res.json({user: userData})
+
+    res.json({user})
   } catch(e) {
     console.error(e);
     res.json({message:e.message})
