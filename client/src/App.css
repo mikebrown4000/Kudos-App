@@ -258,8 +258,8 @@ html {
 
 .outer-bar {
   height: 10px;
-  width: 80vw;
-  border: 1px solid black;
+  width: 100%;
+  border: 2px solid #379683;
   margin: 0 auto;
   border-radius: 5px;
   overflow: hidden;
@@ -267,4 +267,126 @@ html {
 
 .inner-bar {
   height: 100%;
+}
+
+.pig{
+  width: 15em;
+  height:15em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.plus-links {
+  background-color: #379683;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 5em;
+  height: 5em;
+}
+
+.star-links{
+  background-color: #379683;
+  border-radius: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 5em;
+  height: 5em;
+}
+
+.budg-nav{
+  margin: 2em 0em;
+  display:flex;
+  justify-content: space-evenly;
+  width: 15em;
+
+}
+
+.plus {
+  margin-top: -12px;
+  color: #f4fbea ;
+  font-size: 3em;
+  font-weight: 700;
+  text-decoration: none;
+  margin-bottom: -10px;
+}
+
+.star{
+  margin-top: -12px;
+  color: #f4fbea ;
+  font-size: 4.5em;
+  font-weight: 700;
+  text-decoration: none;
+  margin-bottom: -36px;
+}
+
+.update-link {
+  font-family: AvenirNext-Medium;
+  color: #f4fbea ;
+  font-size: 0.8em;
+  font-weight: 100;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.rearrange {
+  font-family: AvenirNext-Medium;
+  color: #f4fbea ;
+  font-size: 0.8em;
+  font-weight: 100;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.star-links:hover, .plus-links:hover{
+  background-color: #5cdb95;
+  color: white;
+}
+
+.budg-block {
+  height: 7em;
+  width: 80%;
+  display:flex;
+  justify-content: space-between;
+}
+
+.budg-input{
+  width: 85%;
+  margin-right: 2em;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.budg-nums{
+    line-height: 1.4em;
+    font-family: AvenirNext-Medium;
+    font-size: 1.5em;
+    color:#379683;
+    font-weight: 400;
+}
+
+.budg-container{
+    width: 50em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 650px) {
+
+.budg-container{
+  width: 25em;
+}
+
+.budg-input {
+    width: 75%;
+}
+
 }
