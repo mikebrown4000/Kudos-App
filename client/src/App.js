@@ -347,6 +347,13 @@ class App extends Component {
     return (
       <div className="App">
 
+      <Route exact path="/" render={(props) => (
+          <LandingPage
+            handleLogin={this.handleLogin}
+            handleChange={this.authHandleChange}
+            formData={this.state.authFormData} />
+      )} />
+
       <Route exact path="/login" render={(props) => (
         <Login
           handleLogin={this.handleLogin}
