@@ -333,17 +333,18 @@ html {
 }
 
 .landing-splash {
+  width: 50vw;
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: space-around;
   margin: 0 auto
 
 }
 
 img {
   height: 100vh;
-  width: 48em;
+
 }
 
 .update-link {
@@ -460,7 +461,10 @@ img {
 }
 
 .big-splash{
+  display: flex;
+  justify-content: flex-end;
   background-color: #379683;
+  width: 50vw;
 }
 
 @media only screen and (max-width: 800px) {
@@ -472,16 +476,7 @@ img {
 
 }
 
-@media only screen and (max-width: 800px) {
-
-  .log-form{
-    margin: 1.5em 0em;
-    width: 21em;
-  }
-
-}
-
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 650px) {
 
 .landing-page{
   height: 100vh;
@@ -493,15 +488,14 @@ img {
 
 
 img{
-  position:  absolute;
-  bottom: 0;
-  right: 0;
-  height:50vh;
-  width: 70vw;
+  height:40vh;
+  width: 40vw;
 }
 
 .big-splash{
-  height: 50vh;
+  display: flex;
+  justify-content: flex-end;
+  height: 40vh;
   width: 100vw;
   position: absolute;
   bottom: 0;
