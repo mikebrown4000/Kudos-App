@@ -323,6 +323,26 @@ html {
   margin-bottom: -36px;
 }
 
+.landing-page {
+  display: flex;
+  flex-directions: column;
+  justify-content: space-between;
+  align-content: center;
+
+}
+
+.landing-splash {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-around;
+  margin: 0 auto
+
+}
+
+.big-splash {
+}
+
 .update-link {
   font-family: AvenirNext-Medium;
   color: #f4fbea ;
