@@ -28,7 +28,7 @@ class App extends Component {
 
     this.state = {
       user:[],
-      currentUser: null,
+      currentUser: {},
       authFormData: {
         email: "",
         password: ""
@@ -78,6 +78,7 @@ class App extends Component {
     this.addMisc = this.addMisc.bind(this);
     this.test = this.test.bind(this);
     this.updateBool = this.updateBool.bind(this);
+    this.updateCurrentUser = this.updateCurrentUser.bind(this);
   }
 
   addMisc(){
@@ -251,7 +252,8 @@ class App extends Component {
   async componentDidMount() {
     const checkUser = localStorage.getItem("jwt");
     if (checkUser) {
-      const user = decode(checkUser);
+      const userDecode = await decode(checkUser);
+      const user = await getUser(userDecode.id)
       this.setState({
         currentUser: user
       })
@@ -264,6 +266,7 @@ class App extends Component {
       currentUser: userData.user
     })
     localStorage.setItem("jwt", userData.token)
+    this.props.history.push('/budgethome')
   }
 
   async handleRegister(e) {
@@ -328,6 +331,12 @@ class App extends Component {
     this.props.history.push('/home')
   }
 
+  updateCurrentUser(currentUser){
+    this.setState({
+      currentUser
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -379,10 +388,13 @@ class App extends Component {
            />
       )} />
 
-      <Route exact path="'/budgethome'" render={(props) => (
-        <LogExpense />
+    <Route exact path="/logexpense" component={(props) => (
+        <LogExpense {...props} user={this.state.currentUser} updateCurrentUser={this.updateCurrentUser} />
       )} />
 
+    <Route exact path="/budgethome" render={(props) => (
+        <BudgetComponent {...props} user={this.state.currentUser} />
+      )} />
       </div>
     );
   }
