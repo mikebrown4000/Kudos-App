@@ -253,7 +253,6 @@ class App extends Component {
     if (checkUser) {
       const userDecode = await decode(checkUser);
       const user = await getUser(userDecode.id)
-      console.log(userDecode)
       this.setState({
         currentUser: user
       })
