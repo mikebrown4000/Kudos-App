@@ -87,7 +87,7 @@ export default (props) => {
 
                <div className="budg-input">
                {catRemaining >= 0 && <div className="log-label">${ catRemaining } of ${ total } remaining</div>}
-               {catRemaining < 0 && <div className="log-label">-${ catRemaining * -1} of ${ total } remaining. You exceeded your budget. </div>}
+               {catRemaining < 0 && <div className="log-label">-${ (catRemaining * -1).toFixed(2)} of ${ total } remaining. You exceeded your budget. </div>}
                <div className="outer-bar">
                  <div className="inner-bar"
                    style={barStyle}>
