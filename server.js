@@ -15,6 +15,7 @@ app.use(cors());
 
 
 app.use('/user', usersRouter);
+app.get('/', (req,res) => res.send('welcome'))
 
 
 // Here we are defining a default error message. notice the 4 parameters in the middleware function
