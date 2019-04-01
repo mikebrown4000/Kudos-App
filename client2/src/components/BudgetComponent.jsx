@@ -7,13 +7,29 @@ export default (props) => {
   const totalSpent = (restaurants + groceries + drinks + entertainment + shopping + bills).toFixed(2)
   const remaining = (weekly_budget - totalSpent).toFixed(2)
   const categories = Object.keys(props.user).filter(ele => props.user[ele] === true)
+  let pigHeight = remaining / weekly_budget * 100
+  let pigColor = (function(val) {
+    switch(val) {
+      case true:
+        return '#5cdb95';
+      case false:
+        return '#ffdd3a';
+      default:
+        return '#5cdb95';
+    }
+  })((pigHeight>=40));
+  let pigColorReverse = '#f4fbea';
+  remaining <= 0 ? pigColorReverse = '#f1655a' : pigColorReverse = pigColorReverse ;
   return (
     <div>
       <Header handleLogout={props.handleLogout} />
       <div className="categoriesContainer">
           <div className="log-header">Weekly Budget</div>
-          <div className="pig" style={{backgroundImage: "url(/media/pig.png)"}}/>
-
+          <div style={{height:'15em', backgroundColor: pigColor, overflow: 'hidden'}}>
+            <div className="pig-background" style={{height: `${100 - pigHeight}%`, backgroundColor: pigColorReverse}}>
+              <div className="pig" style={{backgroundImage: "url(/media/main_pig.png)"}}/>
+            </div>
+          </div>
           <div>
           { remaining >= 0 ? (
             <div className="budg-nums">${ remaining }</div>
