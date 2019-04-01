@@ -60,7 +60,7 @@
            (<div className="log-block">
              <div
              className="log-img"
-              style={{backgroundImage: "url(/media/iconrest.png)"}} alt="restaurant-logo" />
+              style={{backgroundImage: "url(/media/restaurants.png)"}} alt="restaurant-logo" />
              <div className="log-input">
              <label
              className="log-label"
@@ -76,7 +76,7 @@
            (<div className="log-block">
              <div
              className="log-img"
-              style={{backgroundImage: "url(/media/icongroc.png)"}} alt="groceries-logo" />
+              style={{backgroundImage: "url(/media/groceries.png)"}} alt="groceries-logo" />
              <div className="log-input">
              <label
              className="log-label"
@@ -92,7 +92,7 @@
            (<div className="log-block">
              <div
              className="log-img"
-              style={{backgroundImage: "url(/media/icondrinks.png)"}} alt="drink-logo" />
+              style={{backgroundImage: "url(/media/drinks.png)"}} alt="drink-logo" />
              <div className="log-input">
              <label
              className="log-label"
@@ -108,7 +108,7 @@
            (<div className="log-block">
              <div
              className="log-img"
-              style={{backgroundImage: "url(/media/iconent.png)"}} alt="entertainment-logo" />
+              style={{backgroundImage: "url(/media/entertainment.png)"}} alt="entertainment-logo" />
              <div className="log-input">
              <label
              className="log-label"
@@ -125,7 +125,7 @@
            (<div className="log-block">
              <div
              className="log-img"
-              style={{backgroundImage: "url(/media/iconshopping.png)"}} alt="shopping-logo" />
+              style={{backgroundImage: "url(/media/shopping.png)"}} alt="shopping-logo" />
              <div className="log-input">
              <label
              className="log-label"
@@ -142,7 +142,7 @@
            (<div className="log-block">
              <div
              className="log-img"
-              style={{backgroundImage: "url(/media/iconbills.png)"}} alt="bill-logo" />
+              style={{backgroundImage: "url(/media/bills.png)"}} alt="bill-logo" />
              <div className="log-input">
              <label className="log-label" forHtml="bills">BILLS</label>
              <input

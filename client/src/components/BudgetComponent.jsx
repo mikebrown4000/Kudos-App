@@ -8,24 +8,34 @@ export default (props) => {
   const remaining = (weekly_budget - totalSpent).toFixed(2)
   const categories = Object.keys(props.user).filter(ele => props.user[ele] === true)
   return (
-    <div>
-      <header>
-        <Link to="/logexpense">+</Link>
-        <p>Weekly Budget</p>
-        <Link to="/setbudget">Rearrange Budget?</Link>
-      </header>
-      <div>pig here</div>
-      <div>
+    <div className="categoriesContainer">
+        <div className="log-header">Weekly Budget</div>
+        <div className="pig" style={{backgroundImage: "url(/media/pig.png)"}}/>
+
+        <div>
         { remaining >= 0 ? (
-          <p>${ remaining }</p>
+          <div className="budg-nums">${ remaining }</div>
         ):
         (
-          <p>-${ (remaining * -1).toFixed(2) }</p>
+          <div className="budg-nums">-${ (remaining * -1).toFixed(2) }</div>
         )}
-        <p>remaining</p>
-        { remaining < 0 && <p> you exceeded your budget</p>}
-      </div>
-      <div>
+        <div className="budg-nums">remaining</div>
+        { remaining < 0 && <div className="budg-nums"> You exceeded your budget</div>}
+        </div>
+
+        <div className="budg-nav">
+        <div className="plus-links">
+        <Link className="plus" to="/logexpense">+</Link>
+        <Link className="update-link" to="/logexpense">Add Expenses</Link>
+        </div>
+
+        <div className="star-links">
+        <Link className="star" to="/setbudget">*</Link>
+        <Link className="rearrange" to="/setbudget">Update Budget</Link>
+        </div>
+        </div>
+
+        <div className="budg-container">
         {categories.map(ele => {
           const category = ele.split('_')[0]
           const spent = props.user[category]
@@ -49,31 +59,42 @@ export default (props) => {
           //   return text
           // }
           const backgroundColor = (function(val) {
-  switch(val) {
-    case true:
-      return '#5cdb95';
-    case false:
-      return '#ffdd3a';
-    default:
-      return '#5cdb95'
-  }
-})((width>=40));
-          const barStyle = {
+            switch(val) {
+              case true:
+              return '#5cdb95';
+              case false:
+              return '#ffdd3a';
+              default:
+              return '#5cdb95'
+              }
+              })((width>=40));
+            const barStyle = {
             width: width + '%',
             backgroundColor,
-          }
+            }
+
           return (
-            <div>
-              {catRemaining >= 0 && <p>${ catRemaining } of ${ total } remaining</p>}
-              {catRemaining < 0 && <p>-${ catRemaining * -1} of ${ total } remaining. You exceeded your budget. </p>}
-              <div className="outer-bar">
-                <div className="inner-bar"
-                  style={barStyle}>
-                </div>
-              </div>
-              <p>{category.toUpperCase()}</p>
+           <div className="budg-block">
+
+            <div
+            className="log-img"
+             style={{backgroundImage: "url(/media/"+ category + ".png)"}} />
+
+             <div className="budg-input">
+             {catRemaining >= 0 && <div className="log-label">${ catRemaining } of ${ total } remaining</div>}
+             {catRemaining < 0 && <div className="log-label">-${ catRemaining * -1} of ${ total } remaining. You exceeded your budget. </div>}
+             <div className="outer-bar">
+               <div className="inner-bar"
+                 style={barStyle}>
+               </div>
+             </div>
+             <div className="log-label">{category.toUpperCase()}</div>
             </div>
+           </div>
+
+
         )})}
       </div>
+
     </div>
 )}
