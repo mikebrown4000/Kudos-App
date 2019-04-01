@@ -51,56 +51,112 @@
    render() {
      const { restaurants_bool, groceries_bool, drinks_bool, entertainment_bool, shopping_bool, bills_bool, miscellanious_bool } = this.state.user
      return(
-         <form onSubmit={this.handleSubmit}>
+       <div className="categoriesContainer">
+        <div className="log-header">Update your Budget</div>
+         <form
+         className="log-form"
+         onSubmit={this.handleSubmit}>
            {restaurants_bool &&
-           (<>
-             <label forHtml="restaurants">RESTAURANTS</label> <br />
-             <img src="" alt="restaurant-logo" />
-             <input type="number" name="restaurants" id="restaurants" placeholder="Type your spending here" onChange={this.handleChange} />
-             <br />
-           </>)}
+           (<div className="log-block">
+             <div
+             className="log-img"
+              style={{backgroundImage: "url(/media/iconrest.png)"}} alt="restaurant-logo" />
+             <div className="log-input">
+             <label
+             className="log-label"
+             forHtml="restaurants">RESTAURANTS</label>
+             <input
+             className="log-field"
+             type="number" name="restaurants" id="restaurants" placeholder="Type your spending here" onChange={this.handleChange} />
+
+             </div>
+           </div>)}
 
            {groceries_bool &&
-           (<>
-             <label forHtml="groceries">GROCERIES</label> <br />
-             <img src="" alt="groceries-logo" />
-             <input type="number" name="groceries" id="groceries" placeholder="Type your spending here" onChange={this.handleChange} />
-             <br />
-           </>)}
+           (<div className="log-block">
+             <div
+             className="log-img"
+              style={{backgroundImage: "url(/media/icongroc.png)"}} alt="groceries-logo" />
+             <div className="log-input">
+             <label
+             className="log-label"
+             forHtml="groceries">GROCERIES</label>
+             <input
+             className="log-field"
+             type="number" name="groceries" id="groceries" placeholder="Type your spending here" onChange={this.handleChange} />
+
+             </div>
+           </div>)}
 
            {drinks_bool &&
-           (<>
-             <label forHtml="drinks">DRINKS</label> <br />
-             <img src="" alt="drink-logo" />
-             <input type="number" name="drinks" id="drinks" placeholder="Type your spending here" onChange={this.handleChange} />
-             <br />
-           </>)}
+           (<div className="log-block">
+             <div
+             className="log-img"
+              style={{backgroundImage: "url(/media/icondrinks.png)"}} alt="drink-logo" />
+             <div className="log-input">
+             <label
+             className="log-label"
+             forHtml="drinks">DRINKS</label>
+             <input
+             className="log-field"
+             type="number" name="drinks" id="drinks" placeholder="Type your spending here" onChange={this.handleChange} />
+
+             </div>
+           </div>)}
 
            {entertainment_bool &&
-           (<>
-             <label forHtml="entertainment">ENTERTAINMENT</label> <br />
-             <img src="" alt="entertainment-logo" />
-             <input type="number" name="entertainment" id="entertainment" placeholder="Type your spending here" onChange={this.handleChange} />
-             <br />
-         </>)}
+           (<div className="log-block">
+             <div
+             className="log-img"
+              style={{backgroundImage: "url(/media/iconent.png)"}} alt="entertainment-logo" />
+             <div className="log-input">
+             <label
+             className="log-label"
+             forHtml="entertainment">ENTERTAINMENT</label>
+
+             <input
+             className="log-field"
+             type="number" name="entertainment" id="entertainment" placeholder="Type your spending here" onChange={this.handleChange} />
+
+             </div>
+         </div>)}
 
            {shopping_bool &&
-           (<>
-             <label forHtml="shopping">SHOPPING</label> <br />
-             <img src="" alt="shopping-logo" />
-             <input type="number" name="shopping" id="shopping" placeholder="Type your spending here" onChange={this.handleChange} />
-             <br />
-           </>)}
+           (<div className="log-block">
+             <div
+             className="log-img"
+              style={{backgroundImage: "url(/media/iconshopping.png)"}} alt="shopping-logo" />
+             <div className="log-input">
+             <label
+             className="log-label"
+             forHtml="shopping">SHOPPING</label>
+
+             <input
+             className="log-field"
+             type="number" name="shopping" id="shopping" placeholder="Type your spending here" onChange={this.handleChange} />
+
+             </div>
+           </div>)}
 
            {bills_bool &&
-           (<>
-             <label forHtml="bills">BILLS</label> <br />
-             <img src="" alt="bill-logo" />
-             <input type="number" name="bills" id="bills" placeholder="Type your spending here" onChange={this.handleChange} />
-             <br />
-           </>)}
-           <input type="submit" value="Done"/>
+           (<div className="log-block">
+             <div
+             className="log-img"
+              style={{backgroundImage: "url(/media/iconbills.png)"}} alt="bill-logo" />
+             <div className="log-input">
+             <label className="log-label" forHtml="bills">BILLS</label>
+             <input
+             className="log-field"
+             type="number" name="bills" id="bills" placeholder="Type your spending here" onChange={this.handleChange} />
+             </div>
+
+           </div>)}
+
+           <input type="submit" value="Done"
+           className="log-button"
+           />
           </form>
+        </div>
      )
    }
  }
