@@ -329,10 +329,7 @@ html {
 
 .landing-page {
   display: flex;
-  flex-directions: column;
-  justify-content: space-between;
-  align-content: center;
-
+  flex-direction: row-reverse;
 }
 
 .landing-splash {
@@ -344,7 +341,9 @@ html {
 
 }
 
-.big-splash {
+img {
+  height: 100vh;
+  width: 48em;
 }
 
 .update-link {
@@ -441,11 +440,82 @@ html {
   font-weight:bold;
 }
 
+.land-button{
+  text-decoration: none;
+  border: 1px solid #379683;
+  border-radius: 2em;
+  margin-top: 6%;
+  background-color: #f4fbea;
+  width: 15em;
+  line-height: 2.2em;
+  height: 2.2em;
+  color: #379683;
+  font-size: 1em;
+  font-family: Avenir-Heavy
+}
+
+.land-button:hover{
+  background-color: #379683;
+  color: white;
+}
+
+.big-splash{
+  background-color: #379683;
+}
+
 @media only screen and (max-width: 800px) {
 
   .log-form{
     margin: 1.5em 0em;
     width: 21em;
   }
+
+}
+
+@media only screen and (max-width: 800px) {
+
+  .log-form{
+    margin: 1.5em 0em;
+    width: 21em;
+  }
+
+}
+
+@media only screen and (max-width: 1050px) {
+
+.landing-page{
+  height: 100vh;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+img{
+  position:  absolute;
+  bottom: 0;
+  right: 0;
+  height:50vh;
+  width: 70vw;
+}
+
+.big-splash{
+  height: 50vh;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #379683;
+}
+
+.landing-splash {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-around;
+  margin: 0 auto
+}
 
 }
