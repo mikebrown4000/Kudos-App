@@ -13,7 +13,7 @@ html {
 }
 
 .register-page{
-  margin: 5em 0em;
+  margin: 10% 0%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +22,7 @@ html {
 .register-title{
   font-size: 1.5em;
   color:#379683;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   font-weight: 600;
 }
 
@@ -30,7 +30,6 @@ html {
   border-radius: 2em;
   background-color: #379683;
   width: 75%;
-  max-width: 35em;
   height: 28em;
   display: flex;
   flex-direction: column;
@@ -40,9 +39,8 @@ html {
 .all-reg-inputs {
   display: flex;
   flex-direction: column;
-  width: 85%;
-  max-width: 35em;
-  margin-top: 4em;
+  width: 85%;;
+  margin-top: 12%;
 }
 
 .register-input {
@@ -52,7 +50,7 @@ html {
   background-color: #f4fbea;
   height: 2em;
   font-size: 1em;
-  margin-bottom: 2em;
+  margin-bottom: 5%;
   color: #379683;
   font-family: Avenir-Heavy
 }
@@ -68,11 +66,10 @@ html {
 }
 
 .reg-button {
-  border: none;
   border-radius: 2em;
-  margin-top: 6%;
+  margin-top: 8%;
   background-color: #f4fbea;
-  width: 7em;
+  width: 40%;
   line-height: 2.2em;
   height: 2.2em;
   color: #379683;
@@ -131,6 +128,7 @@ html {
   color: white;
   font-size: 1em;
 }
+
 
 .budget-button:hover, .reg-button:hover, .log-button:hover{
   background-color: #5cdb95;

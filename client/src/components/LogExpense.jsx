@@ -1,51 +1,37 @@
- import React, {Component} from 'react'
+// from clicking + button on main page, user inputs expenses
+ import React from 'react'
  import { Link } from 'react-router-dom'
- import { putBudget } from '../services/apihelpers'
+// link or div/button with onclick history push?
 
  class LogExpense extends Component {
-   constructor(props){
-     super(props)
+   constructor(){
+     super()
 
      this.state = {
+       user: {},
        restaurants: 0,
-       groceries: 0,
        drinks: 0,
        entertainment: 0,
        shopping: 0,
        bills: 0,
-       user: {},
+       miscellanious: 0,
      }
-     this.handleChange = this.handleChange.bind(this)
-     this.handleSubmit = this.handleSubmit.bind(this)
    }
 
    handleChange(e) {
      const { name, value } = e.target;
      this.setState({
-       [name]:parseInt(value)
+       [name]:value
      })
    }
 
-   async handleSubmit(e) {
-     e.preventDefault()
-     const { restaurants, groceries, drinks, entertainment, shopping, bills } = this.props.user
-     const data = {
-       restaurants: this.state.restaurants + restaurants,
-       groceries: this.state.groceries + groceries,
-       drinks: this.state.drinks + drinks,
-       entertainment: this.state.entertainment + entertainment,
-       shopping: this.state.shopping + shopping,
-       bills: this.state.bills + bills,
-     }
-     const resp = await putBudget(data, this.props.user.id)
-     await this.props.updateCurrentUser(resp.user)
-     this.props.history.push('/budgethome')
+   handleSubmit(e) {
+     // add user input from state to vals in state user object (or props when linked to app.js)
+     //post new values to user
    }
 
    componentDidMount() {
-     this.setState({
-       user: this.props.user
-     })
+     //call user get . should eventually happen from main page and save to state. pass down user obj as prop
    }
 
    render() {
